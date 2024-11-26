@@ -41,3 +41,47 @@ Add the following scripts to your package.json:
     "start": "node dist/index.js"
   }
 ```
+
+### **_4. Create a tsconfig.json file_**
+
+Run the following command:
+
+```bash
+npx tsc --init
+```
+
+Then, delete all the content from the file and replace it with this:
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022", // ES6 version or higher
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist", // Output directory
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+
+    // Define your base directory
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@controllers/*": ["src/controllers/*"]
+      // Add more paths here
+    }
+  },
+
+  // These files will be included in the compilation
+  "include": ["src/**/*"],
+
+  // These files will not be compiled
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
+```
