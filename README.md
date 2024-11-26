@@ -169,7 +169,7 @@ Add dependencies:
 
 ```bash
 # Dependencies
-npm install express dotenv module-alias
+npm install --save express dotenv module-alias
 
 # Dev dependencies
 npm install --save-dev typescript ts-node-dev tsconfig-paths @types/node @types/express@4.17.21
