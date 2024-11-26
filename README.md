@@ -46,13 +46,13 @@ Add the following scripts to your package.json:
 }
 ```
 
-For development, we'll run the following command:
+> For development, we'll run the following command:
 
 ```bash
 npm run dev
 ```
 
-For production, we'll run the following commands:
+> For production, we'll run the following commands:
 
 ```bash
 npm run build
@@ -88,7 +88,7 @@ Then, delete all the content from the file and replace it with this:
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
 
-    // Define your base directory
+    // Define your base directory and paths
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
@@ -126,9 +126,10 @@ npm install dotenv
 
 <br>
 
-In your package.json file, add the following:
+We have 2 path aliases `@` and `@controllers` in our `tsconfig.json` file. Add the following in your `package.json` file:
 
 ```json
+// package.json
 "_moduleAliases": {
   "@": "dist", // src/*
   "@controllers": "dist/controllers" // src/controllers/*
@@ -143,6 +144,8 @@ if (process.env.NODE_ENV === 'production') require('module-alias/register')
 ```
 
 > ### **_This last 2 steps will help us to work with aliases in production, but we need to change the `NODE_ENV` value to `production` in the .env file_**
+
+<br>
 
 Our project will look like this:
 
@@ -160,7 +163,7 @@ const user = new UserController()
 
 <br>
 
-## **_A project with `Express` and `TypeScript` will look like this:_**
+## **_A `Express` project with `TypeScript` will look like this:_**
 
 Add dependencies:
 
@@ -179,5 +182,33 @@ At this time `Express` installs its types with version `5.0.0` by default, so we
 ```typescript
 // src/index.ts
 import 'dotenv/config'
-import express from 'express
+if (process.env.NODE_ENV === 'production') require('module-alias/register')
+
+import express from 'express'
+import { greet } from '@/utils/greet'
+
+const app = express()
+const PORT = process.env.PORT || 8000
+
+app.get('/', (req, res) => {
+  const result = greet('Hello World')
+  return res.send(result)
+})
+
+app.listen(PORT, () => console.log('Server is running on port ' + PORT))
+```
+
+<br>
+
+> For development, we'll run the following command:
+
+```bash
+npm run dev
+```
+
+> For production, we'll run the following commands:
+
+```bash
+npm run build
+npm run start
 ```
