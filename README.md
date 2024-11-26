@@ -200,6 +200,43 @@ app.listen(PORT, () => console.log('Server is running on port ' + PORT))
 
 <br>
 
+### **_package.json_**
+
+```json
+{
+  "name": "programming-logic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "module-alias": "^2.2.3"
+  },
+  "_moduleAliases": {
+    "@": "dist",
+    "@controllers": "dist/controllers"
+  }
+}
+```
+
+<br>
+
 > For development, we'll run the following command:
 
 ```bash
