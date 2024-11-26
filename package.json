@@ -7,6 +7,10 @@
     "build": "tsc",
     "start": "node dist/index.js"
   },
+  "_moduleAliases": {
+    "@": "dist",
+    "@controllers": "dist/controllers"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
