@@ -106,11 +106,12 @@ In your package.json file, add the following:
 }
 ```
 
-This will allow you to use path aliases when the code is compiled!!!
 
-### **_7. Add module-alias in your main file_**
+Add this line to your main file:
 
 ```typescript
 // src/index.ts
 if (process.env.NODE_ENV === 'production') require('module-alias/register')
 ```
+
+> ### ***This last 2 steps will help us to work with aliases in production, but we need to change the `NODE_ENV` value to `production` in the .env file***
