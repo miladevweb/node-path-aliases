@@ -175,9 +175,12 @@ npm install --save express dotenv module-alias
 npm install --save-dev typescript ts-node-dev tsconfig-paths @types/node @types/express@4.17.21
 ```
 
-At this time `Express` installs its types with version `5.0.0` by default, so we need to install the types for version `4.17.21`
+At this time `Express` installs its types with version `5.0.0` by default, so we need to install the types for version `4.17.21`.
 
-### **_Main File:_**
+<br>
+
+<details>
+  <summary><strong><i>Main File (src/index.ts)</i></strong></summary>
 
 ```typescript
 // src/index.ts
@@ -200,7 +203,10 @@ app.listen(PORT, () => console.log('Server is running on port ' + PORT))
 
 <br>
 
-### **_package.json_**
+</details>
+
+<details>
+  <summary><strong><i>package.json</i></strong></summary>
 
 ```json
 {
@@ -234,6 +240,23 @@ app.listen(PORT, () => console.log('Server is running on port ' + PORT))
   }
 }
 ```
+
+<br>
+
+</details>
+
+<details>
+  <summary><strong><i>tsconfig.json</i></strong></summary>
+
+```json
+
+```
+
+
+
+<br>
+
+</details>
 
 <br>
 
