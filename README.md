@@ -97,6 +97,14 @@ Create a .env file in the root directory, we'll add `development` or `production
 NODE_ENV=development
 ```
 
+Now add `dotenv` to your dependencies:
+
+```bash
+npm install dotenv
+```
+
+<br>
+
 In your package.json file, add the following:
 
 ```json
@@ -106,7 +114,6 @@ In your package.json file, add the following:
 }
 ```
 
-
 Add this line to your main file:
 
 ```typescript
@@ -114,4 +121,22 @@ Add this line to your main file:
 if (process.env.NODE_ENV === 'production') require('module-alias/register')
 ```
 
-> ### ***This last 2 steps will help us to work with aliases in production, but we need to change the `NODE_ENV` value to `production` in the .env file***
+> ### **_This last 2 steps will help us to work with aliases in production, but we need to change the `NODE_ENV` value to `production` in the .env file_**
+
+<br>
+
+## **_A project with `Express` and `TypeScript` will look like this:_**
+
+Add dependencies:
+
+```bash
+# Dependencies
+npm install express dotenv module-alias
+
+# Dev dependencies
+npm install --save-dev typescript ts-node-dev tsconfig-paths @types/node @types/express@4.17.21
+```
+
+At this time `Express` installs its types with version `5.0.0` by default, so we need to install the types for version `4.17.21`
+
+
