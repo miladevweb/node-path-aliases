@@ -271,7 +271,6 @@ app.listen(PORT, () => console.log('Server is running on port ' + PORT))
   },
 
   "include": ["src/**/*"],
-
   "exclude": ["node_modules", "**/*.test.ts"]
 }
 ```
