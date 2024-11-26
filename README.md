@@ -8,6 +8,8 @@
 npm init --y
 ```
 
+<br>
+
 ### **_2. Install Dependencies_**
 
 In order to work with TypeScript, we need to install 4 packages:
@@ -30,6 +32,8 @@ And for Production, we need to install:
 npm install --save module-alias # for aliasing
 ```
 
+<br>
+
 ### **_3. Add Scripts to package.json_**
 
 Add the following scripts to your package.json:
@@ -41,6 +45,21 @@ Add the following scripts to your package.json:
   "start": "node dist/index.js"
 }
 ```
+
+For development, we'll run the following command:
+
+```bash
+npm run dev
+```
+
+For production, we'll run the following commands:
+
+```bash
+npm run build
+npm run start
+```
+
+<br>
 
 ### **_4. Create a tsconfig.json file_**
 
@@ -88,7 +107,9 @@ Then, delete all the content from the file and replace it with this:
 
 > ### **_Add your files in src folder_**
 
-### **_6. Environment Variables and Module Aliases_**
+<br>
+
+### **_5. Environment Variables and Module Aliases_**
 
 Create a .env file in the root directory, we'll add `development` or `production` value in `NODE_ENV` variable:
 
@@ -123,6 +144,20 @@ if (process.env.NODE_ENV === 'production') require('module-alias/register')
 
 > ### **_This last 2 steps will help us to work with aliases in production, but we need to change the `NODE_ENV` value to `production` in the .env file_**
 
+Our project will look like this:
+
+```typescript
+// src/index.ts
+import 'dotenv/config'
+if (process.env.NODE_ENV === 'production') require('module-alias/register')
+
+import { sum } from '@/utils/sum'
+import { UserController } from '@controllers/user'
+
+const result = sum(1, 2)
+const user = new UserController()
+```
+
 <br>
 
 ## **_A project with `Express` and `TypeScript` will look like this:_**
@@ -139,4 +174,10 @@ npm install --save-dev typescript ts-node-dev tsconfig-paths @types/node @types/
 
 At this time `Express` installs its types with version `5.0.0` by default, so we need to install the types for version `4.17.21`
 
+### **_Main File:_**
 
+```typescript
+// src/index.ts
+import 'dotenv/config'
+import express from 'express
+```
