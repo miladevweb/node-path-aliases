@@ -177,8 +177,6 @@ npm install --save-dev typescript ts-node-dev tsconfig-paths @types/node @types/
 
 At this time `Express` installs its types with version `5.0.0` by default, so we need to install the types for version `4.17.21`.
 
-<br>
-
 <details>
   <summary><strong><i>Main File (src/index.ts)</i></strong></summary>
 
@@ -249,10 +247,34 @@ app.listen(PORT, () => console.log('Server is running on port ' + PORT))
   <summary><strong><i>tsconfig.json</i></strong></summary>
 
 ```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@controllers/*": ["src/controllers/*"]
+    }
+  },
+
+  "include": ["src/**/*"],
+
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
 ```
-
-
 
 <br>
 
