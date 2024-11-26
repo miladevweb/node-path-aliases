@@ -35,11 +35,11 @@ npm install --save module-alias # for aliasing
 Add the following scripts to your package.json:
 
 ```json
-  "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
-  }
+"scripts": {
+  "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js"
+}
 ```
 
 ### **_4. Create a tsconfig.json file_**
@@ -84,4 +84,33 @@ Then, delete all the content from the file and replace it with this:
   // These files will not be compiled
   "exclude": ["node_modules", "**/*.test.ts"]
 }
+```
+
+> ### **_Add your files in src folder_**
+
+### **_6. Environment Variables and Module Aliases_**
+
+Create a .env file in the root directory, we'll add `development` or `production` value in `NODE_ENV` variable:
+
+```bash
+# .env
+NODE_ENV=development
+```
+
+In your package.json file, add the following:
+
+```json
+"_moduleAliases": {
+  "@": "dist", // src/*
+  "@controllers": "dist/controllers" // src/controllers/*
+}
+```
+
+This will allow you to use path aliases when the code is compiled!!!
+
+### **_7. Add module-alias in your main file_**
+
+```typescript
+// src/index.ts
+if (process.env.NODE_ENV === 'production') require('module-alias/register')
 ```
