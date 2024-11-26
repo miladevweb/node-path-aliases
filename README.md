@@ -192,8 +192,8 @@ const app = express()
 const PORT = process.env.PORT || 8000
 
 app.get('/', (req, res) => {
-  const result = greet('Camilla')
-  return res.send(result) // Hello Camilla
+  const result = greet('Camilla') // Hello Camilla
+  return res.send(result)
 })
 
 app.listen(PORT, () => console.log('Server is running on port ' + PORT))
