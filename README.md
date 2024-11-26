@@ -23,3 +23,21 @@ or just run:
 ```bash
 npm install --save-dev typescript ts-node-dev tsconfig-paths
 ```
+
+And for Production, we need to install:
+
+```bash
+npm install --save module-alias # for aliasing
+```
+
+### **_3. Add Scripts to package.json_**
+
+Add the following scripts to your package.json:
+
+```json
+  "scripts": {
+    "dev": "ts-node-dev -r tsconfig-paths/register src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
+```
