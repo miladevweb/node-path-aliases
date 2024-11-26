@@ -18,7 +18,7 @@ npm install --save-dev ts-node-dev # for development like nodemon
 npm install --save-dev tsconfig-paths # for resolving paths
 ```
 
-or
+or just run:
 
 ```bash
 npm install --save-dev typescript ts-node-dev tsconfig-paths
