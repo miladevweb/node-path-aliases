@@ -192,11 +192,16 @@ const app = express()
 const PORT = process.env.PORT || 8000
 
 app.get('/', (req, res) => {
-  const result = greet('Hello World')
-  return res.send(result)
+  const result = greet('Camilla')
+  return res.send(result) // Hello Camilla
 })
 
 app.listen(PORT, () => console.log('Server is running on port ' + PORT))
+```
+
+```typescript
+// src/utils/greet.ts
+export const greet = (name: string) => `Hello ${name}`
 ```
 
 <br>
